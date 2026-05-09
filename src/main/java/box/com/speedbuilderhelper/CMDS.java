@@ -38,8 +38,8 @@ public class CMDS extends CommandBase {
             PlayerUtils.sendMessageWithPing("§eSpeed-Builder Helper Commands");
             PlayerUtils.sendMessage(" §3/speedbuilders debug§7: enables / disables debugging");
             PlayerUtils.sendMessage(" §3/speedbuilders toggle§7: enables / disables speed-builder helper");
-            PlayerUtils.sendMessage(" §3/speedbuilders setname§7: sets your username to what you input");
-            PlayerUtils.sendMessage(" §3/speedbuilders times§7: shows your best times sorted by speed");
+            PlayerUtils.sendMessage(" §3/speedbuilders setname <name>§7: sets your username to <name>");
+            PlayerUtils.sendMessage(" §3/speedbuilders times [theme]§7: shows your best times filtered with [theme] and sorted by speed");
             PlayerUtils.sendMessage(" §3/speedbuilders showtime§7: shows your best time for the theme you are currently playing");
             PlayerUtils.sendMessage(" §3/speedbuilders overview§7: shows all new best times achieved this session");
             PlayerUtils.sendMessage(" §3/speedbuilders reset§7: clears the session best times list");

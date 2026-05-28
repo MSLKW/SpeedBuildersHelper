@@ -84,9 +84,27 @@ public class CMDS extends CommandBase {
 
                 for (JsonElement element : themesArray) {
                     JsonObject record = element.getAsJsonObject();
-                    if (!targetTheme.isEmpty() && !record.get("theme").getAsString().toLowerCase().contains(targetTheme)) {
-                        continue;
-                    }
+					if (!targetTheme.isEmpty())
+					{
+						char comparisonSymbol = targetTheme.charAt(0);
+						if (comparisonSymbol == '<' || comparisonSymbol == '>' || comparisonSymbol == '=')
+						{
+							double bestTime = record.get("bestTime").getAsDouble();
+							double timeCondition = Double.parseDouble(targetTheme.substring(1));
+							if (comparisonSymbol == '<' && bestTime >= timeCondition) {
+								continue;
+							} 
+							else if (comparisonSymbol == '>' && bestTime <= timeCondition) {
+								continue;
+							}
+							else if (comparisonSymbol == '=' && bestTime != timeCondition) {
+								continue;
+							}
+						}
+						else if (!record.get("theme").getAsString().toLowerCase().contains(targetTheme)) {
+							continue;
+						}
+					}
                     Map<String, Object> timeRecord = new HashMap<>();
                     timeRecord.put("theme", record.get("theme").getAsString());
                     timeRecord.put("difficulty", record.get("difficulty").getAsString());
